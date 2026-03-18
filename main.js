@@ -1,7 +1,8 @@
-import { render } from "./render.js";
+import { renderHtml,renderHtmlDetalle } from "./render.js";
 import { loadProducts } from "./products.js";
 
 var products = await loadProducts(100);
-const html = render(products);
+//const html = renderHtml(products);
+const htmlDetalle = renderHtmlDetalle(products[52]);
 
-console.log(html);
+console.log(htmlDetalle);
