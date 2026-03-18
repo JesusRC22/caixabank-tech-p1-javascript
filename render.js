@@ -16,13 +16,37 @@ const headHtmlDetalle = (title) => `
   <link rel="stylesheet" href="../Styles/style-producto.css">
 </head>`;
 
-const header = () => `
+const headerHtml = () => `
 <header class="header">
     <div class="header-container">
       <div class="logo-area">
         <div class="logo">
-          <div class="logo-img">M</div>
-          <span class="logo-text">Tu logo</span>
+          <div class="logo-img">
+            <img src="images/logo.png" ></img>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="header-title">Mercado de oportunidades</h1>
+
+      <div class="profile-area">
+        <div class="profile-icon" title="Perfil">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-4.418 0-8 2.239-8 5v1h16v-1c0-2.761-3.582-5-8-5z"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </header>`;
+
+const headerHtmlDetalle = () => `
+<header class="header">
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo">
+          <div class="logo-img">
+            <img src="../images/logo.png" ></img>
+          </div>
         </div>
       </div>
 
@@ -220,7 +244,7 @@ export const renderHtml = (products) => {
 <html>
   ${headHtml("Mercado de oportunidades")}
   <body>
-    ${header()}
+    ${headerHtml()}
     <main class="main">
     <section class="products-grid" id="productsGrid">
       ${renderProducts(products)}
@@ -236,7 +260,7 @@ export const renderHtmlDetalle = (product) => {
 <html>
   ${headHtmlDetalle("Detalle de producto")}
   <body>
-    ${header()}
+    ${headerHtmlDetalle()}
     <main class="main">
     <section class="product-detail" id="productDetail">
      ${renderProductsDetalle(product)}
