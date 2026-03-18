@@ -1,5 +1,15 @@
 {
-  "name": "json-to-html",
+  "name": "caixabank-tech-p1-javascript",
   "module": "main.js",
-  "type": "module"
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "scripts": {
+    "dev": "bun main.js"
+  }
 }
