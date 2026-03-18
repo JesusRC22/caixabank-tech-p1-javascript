@@ -1,5 +1,7 @@
+import { render } from "./render.js";
 import { loadProducts } from "./products.js";
 
-var products = await loadProducts(1);
+var products = await loadProducts(100);
+const html = render(products);
 
-console.log(products);
+console.log(html);
