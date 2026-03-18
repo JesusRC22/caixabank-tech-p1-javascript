@@ -228,7 +228,110 @@ const headHtml = (title) => `
       box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
     }
 
+    /* FOOTER */
+    .footer {
+  background: #111827;
+  color: #f9fafb;
+  margin-top: 50px;
+  padding: 40px 24px 20px;
+}
+
+.footer-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-brand {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  max-width: 320px;
+}
+
+.footer-logo {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.footer-title {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.footer-text {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #d1d5db;
+}
+
+.footer-links {
+  display: flex;
+  gap: 50px;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 160px;
+}
+
+.footer-column h4 {
+  font-size: 15px;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.footer-column a {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-column a:hover {
+  color: #ffffff;
+}
+
+.footer-bottom {
+  padding-top: 18px;
+  text-align: center;
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+  .footer-links {
+    gap: 30px;
+  }
+}
+
+
+
     /* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+  }
+
     @media (max-width: 1200px) {
       .products-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -600,6 +703,7 @@ const headHtmlDetalle = (title) => `
       border: 1px solid #eef2f7;
       color: #6b7280;
     }
+  /* FOOTER */
     
     .footer {
   background: #111827;
@@ -822,8 +926,10 @@ const footer = () => `
 </footer>`;
 
 const renderProducts = (products) => {
+  let contador = 0;
   let html = "";
   for (const product of products) {
+    contador++;
     html += `<article class="product-card">
           <div class="product-image-wrapper">
             <img
@@ -834,7 +940,7 @@ const renderProducts = (products) => {
           </div>
 
           <div class="product-info">
-            <h2 class="product-title">${product.title}</h2>
+            <h2 class="product-title">${product.title != undefined ? product.title : "No disponible"}</h2>
 
             <div class="product-meta">
               <div class="meta-row">
@@ -844,16 +950,16 @@ const renderProducts = (products) => {
 
               <div class="meta-row">
                 <span class="meta-label">Rating:</span>
-                <span class="rating">⭐ ${product.rating}</span>
+                <span class="rating">⭐ ${product.rating != undefined ? product.rating : "No disponible"}</span>
               </div>
 
               <div class="meta-row">
                 <span class="meta-label">Marca:</span>
-                <span class="brand">${product.brand}</span>
+                <span class="brand">${product.brand != undefined ? product.brand : "No disponible"}</span>
               </div>
             </div>
 
-            <button class="product-button">Ver más...</button>
+            <a href="Productos/producto${contador}.html"><button class="product-button">Ver más...</button></a>
           </div>
         </article>`;
   }
@@ -865,8 +971,8 @@ const renderProductsDetalle = (product) => {
   
   let html = `<div class="card product-info-card">
           <span class="product-badge">${product.category}</span>
-          <h2 class="product-title">${product.title}</h2>
-          <p class="product-description">${product.description}</p>
+          <h2 class="product-title">${product.title != undefined ? product.title : "No disponible"}</h2>
+          <p class="product-description">${product.description != undefined ? product.description : "No disponible"}</p>
 
           <div class="info-grid">
             <div class="info-row">
@@ -876,7 +982,7 @@ const renderProductsDetalle = (product) => {
 
             <div class="info-row">
               <span class="info-label">Marca</span>
-              <span class="info-value">${product.brand}</span>
+              <span class="info-value">${product.brand != undefined ? product.brand : "No disponible"}</span>
             </div>
 
             <div class="info-row">
@@ -965,6 +1071,7 @@ export const renderHtml = (products) => {
       ${renderProducts(products)}
     </section>
   </main>
+  ${footer()}
   </body>
 </html>`;
 };
