@@ -67,7 +67,6 @@ const footer = () => `
   <div class="footer-container">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="footer-logo">M</div>
         <div>
           <h3 class="footer-title">Mercado de oportunidades</h3>
           <p class="footer-text">Encuentra productos interesantes al mejor precio.</p>
